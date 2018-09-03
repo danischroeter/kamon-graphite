@@ -17,6 +17,9 @@ Per default the graphite tag support (available since graphite 1.1) is enabled (
             # the metric will be named metricname.tag1.value1.tag2.value2
             legacy-support = false
     
+            # For histograms, which percentiles to count
+            percentiles = [50.0,90.0,99.0]    
+    
             additional-tags {
                 service = "yes"
                 host = "yes"
@@ -61,7 +64,3 @@ Main
 
 ## Failure handling
 When sending metrics at a tick interval fails the current snapshot will be dropped and the next snapshot will try to send metrics using new connection.
-    
-## Possible enhancements
-* configure percentiles - currently hardcoded to 90
-* add tests
